@@ -4,7 +4,7 @@
 --		Honorifics may have zero instances for a specific Name (honorific+ not satisfied, only honorific*)
 --      Majors may have zero instances for a specific Education (major+ not satisfied, only major*)
 
-
+CREATE SCHEMA a3_test;
 CREATE TABLE Interviews (
 	rID INT,
 	pID INT,
@@ -31,7 +31,7 @@ CREATE TABLE Honorifics (
 	nID INT,
 	honor_title TEXT NOT NULL,
 	FOREIGN KEY (nID) REFERENCES Names,
-	PRIMARY KEY (nID, honor)	
+	PRIMARY KEY (nID, honor_title)	
 );
 
 CREATE TABLE Titles (
@@ -154,7 +154,7 @@ CREATE TABLE Educations (
 );
 
 CREATE DOMAIN degree_type as varchar(13)
-	CHECK (VALUE IN ('certificate', 'undergraduate', 'professional', 'masters', 'doctoral'))
+	CHECK (VALUE IN ('certificate', 'undergraduate', 'professional', 'masters', 'doctoral'));
 
 CREATE TABLE Majors (
 	eID INT,
