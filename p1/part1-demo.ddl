@@ -1,7 +1,8 @@
 
 -- Not enforced DTD restrictions:
---		work Title may have zero instances for a specific workExperience
---		
+--		work Title may have zero instances for a specific workExperience (workTitle+ not satisfied, only workTitle*)
+--		honorifics may have zero instances for a specific Name (honorific+ not satisfied, only honorific*)
+--      
 -- There may be redundancies caused by more than one honorific (in Names table)
 -- There may be redundancies caused by more than one major (in Educations table)
 
@@ -12,7 +13,7 @@ CREATE TABLE Interviews (
 	i_date DATE, 
 	i_time TIME,
 	location TEXT,
-	foreign key (aID) references Assessments,
+	FOREIGN KEY (aID) REFERENCES Assessments,
 	PRIMARY KEY (rID, pID, nID)
 );
 
@@ -24,24 +25,30 @@ CREATE TABLE Names (
 	PRIMARY KEY (nID)
 );
 
+CREATE TABLE honorifics (
+	FOREIGN KEY (nID) REFERENCES Names,
+	honor TEXT NOT NULL,
+	PRIMARY KEY (nID, honor)	
+);
+
 CREATE TABLE Titles (
-	FOREIGN KEY (nID) references Names,
+	FOREIGN KEY (nID) REFERENCES Names,
 	title TEXT NOT NULL,
 	PRIMARY KEY (nID, title)
 );
 
-create table Assessments (
+CREATE TABLE Assessments (
 	aID INT,
 	techProficiency TEXT,
 	communication TEXT,
 	enthusiasm TEXT,
-	primary key (aID)
+	PRIMARY KEY (aID)
 );
 
-create table Collegiality (
-	foreign key (aID) references Assessments
+CREATE TABLE Collegiality (
+	FOREIGN KEY (aID) REFERENCES Assessments
 	score INT NOT NULL,
-	primary key (aID)
+	PRIMARY KEY (aID)
 );
 
 CREATE TABLE Postings (
@@ -50,106 +57,113 @@ CREATE TABLE Postings (
 	PRIMARY KEY (pID)
 );
 
-create table Questions (
+CREATE TABLE Questions (
 	qID INT,
-	foreign key (pID) references Postings,
+	FOREIGN KEY (pID) REFERENCES Postings,
 	question TEXT NOT NULL,
-	primary key (qID)
+	PRIMARY KEY (qID)
 );
 
 
-create table Answers (
-	foreign key (aID) references Assessments,
-	foreign key (qID) references Questions,
+CREATE TABLE Answers (
+	FOREIGN KEY (aID) REFERENCES Assessments,
+	FOREIGN KEY (qID) REFERENCES Questions,
 	answer TEXT NOT NULL,
-	primary key (aID, qID)
+	PRIMARY KEY (aID, qID)
 );
 
-create domain skill_type as VARCHAR(6)
+CREATE DOMAIN skill_type as VARCHAR(6)
 	CHECK ( VALUE IN ('SQL', 'Scheme', 'Python', 'R', 'LaTeX') );
 
-create domain level_type as INT
+CREATE DOMAIN level_type as INT
 	CHECK ( VALUE >= 1 AND VALUE <= 5 );
 
-create table ReqSkills (
-	foreign key (pID) references Postings,
+CREATE TABLE ReqSkills (
+	FOREIGN KEY (pID) REFERENCES Postings,
 	skill skill_type NOT NULL,
 	level level_type NOT NULL,
 	importance level_type NOT NULL,
-	primary key (pID, skill)
+	PRIMARY KEY (pID, skill)
 );
 
-create table Resumes (
+CREATE TABLE Resumes (
 	rID INT,
-	foreign key (nID) references Names,
+	FOREIGN KEY (nID) REFERENCES Names,
 	DoB DATE, 
 	citizenship TEXT,
 	address TEXT,
 	telephone VARCHAR(11),
 	email TEXT,
-	primary key (rID)
+	PRIMARY KEY (rID)
 );
 
-create table Summaries (
-	foreign key (rID) references Resumes,
-	summary text,
-	primary key (rID)
+CREATE TABLE Summaries (
+	FOREIGN KEY (rID) REFERENCES Resumes,
+	summary TEXT,
+	PRIMARY KEY (rID)
 );
 
-create table WorkExperiences (
-	foreign key (rID) references Resumes,
+CREATE TABLE WorkExperiences (
+	FOREIGN KEY (rID) REFERENCES Resumes,
 	wID INT,
-	where text NOT NULL,
+	where TEXT NOT NULL,
 	start_date DATE,
 	end_date DATE,
-	primary key (wID),
+	PRIMARY KEY (wID),
 	CHECK start_date <= end_date
 );
 
-create table WorkTitles (
-	foreign key (wID) references WorkExperiences,
+CREATE TABLE WorkTitles (
+	FOREIGN KEY (wID) REFERENCES WorkExperiences,
 	workTitle TEXT,
-	primary key (wID, workTitle)
+	PRIMARY KEY (wID, workTitle)
 );
 
-create table WorkDescriptions (
-	foreign key (wID) references WorkExperiences,
-	description text,
-	primary key (wID, description)
+CREATE TABLE WorkDescriptions (
+	FOREIGN KEY (wID) REFERENCES WorkExperiences,
+	description TEXT,
+	PRIMARY KEY (wID, description)
 );
 
-create table Educations (
+CREATE TABLE Educations (
 	eID INT,
-	foreign key (rID) references Resumes,
+	FOREIGN KEY (rID) REFERENCES Resumes,
 	degreeName TEXT,
-	institution text,
-	major text,
+	institution TEXT,
+	major TEXT,
 	degreeLevel degree_type NOT NULL,
-	start_date date,
-	end_date date,
+	start_date DATE,
+	end_date DATE,
 	CHECK start_date <= end_date,
-	primary key (eID)
+	PRIMARY KEY (eID)
 );
 
-create domain degree_type as varchar(13)
+CREATE DOMAIN degree_type as varchar(13)
 	CHECK (VALUE IN ('certificate', 'undergraduate', 'professional', 'masters', 'doctoral'))
 
-create table Minors (
-	foreign key (eID) references Educations,
-	minor text,
-	primary key (eID, minor)
+CREATE TABLE Majors (
+	FOREIGN KEY (eID) REFERENCES Educations,
+	major TEXT,
+	PRIMARY KEY (eID)
+);
+	
+	
+CREATE TABLE Minors (
+	FOREIGN KEY (eID) REFERENCES Educations,
+	minor TEXT,
+	PRIMARY KEY (eID, minor)
 );
 
-create table Honors (
-	foreign key (eID) references Educations,
-	honor text,
-	primary key (eID)
+CREATE TABLE Honors (
+	FOREIGN KEY (eID) REFERENCES Educations,
+	honor TEXT,
+	PRIMARY KEY (eID)
 );
 
-create table HasSkills (
-	foreign key (rID) references Resumes,
+CREATE TABLE HasSkills (
+	FOREIGN KEY (rID) REFERENCES Resumes,
 	skill skill_type NOT NULL,
 	level level_type NOT NULL,
-	primary key (rID, skill)
+	PRIMARY KEY (rID, skill)
 );
 
