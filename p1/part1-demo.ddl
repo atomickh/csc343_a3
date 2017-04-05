@@ -9,22 +9,6 @@ DROP TABLE IF EXISTS Interviews, Names, Honorifics, Titles, Assessments, Collegi
 DROP DOMAIN IF EXISTS skill_type, level_type, degree_type CASCADE;
 
 
-
-CREATE TABLE Interviews (
-	rID INT,
-	pID INT,
-	nID INT,
-	aID INT,
-	i_date DATE, 
-	i_time TIME,
-	location TEXT,
-	FOREIGN KEY (rID) REFERENCES Resumes, 
-	FOREIGN KEY (pID) REFERENCES Postings, 
-	FOREIGN KEY (nID) REFERENCES Names,
-	FOREIGN KEY (aID) REFERENCES Assessments,
-	PRIMARY KEY (rID, pID, nID)
-);
-
 CREATE TABLE Names (
 	nID INT,
 	forename TEXT,
@@ -99,6 +83,22 @@ CREATE TABLE ReqSkills (
 	FOREIGN KEY (pID) REFERENCES Postings,
 	PRIMARY KEY (pID, skill)
 );
+
+CREATE TABLE Interviews (
+	rID INT,
+	pID INT,
+	nID INT,
+	aID INT,
+	i_date DATE, 
+	i_time TIME,
+	location TEXT,
+	FOREIGN KEY (rID) REFERENCES Resumes, 
+	FOREIGN KEY (pID) REFERENCES Postings, 
+	FOREIGN KEY (nID) REFERENCES Names,
+	FOREIGN KEY (aID) REFERENCES Assessments,
+	PRIMARY KEY (rID, pID, nID)
+);
+
 
 CREATE TABLE Resumes (
 	rID INT,
