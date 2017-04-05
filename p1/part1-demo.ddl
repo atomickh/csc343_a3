@@ -5,7 +5,7 @@
 --      Majors may have zero instances for a specific Education (major+ not satisfied, only major*)
 
 DROP TABLE IF EXISTS Interviews, Names, Honorifics, Titles, Assessments, Collegiality, Postings, Questions, Answers, ReqSkills, Resumes, 
-					 Summaries, WorkDescriptions, WorkTitles, WorkDescriptions, Educations, Majors, Minors, Honors, HasSkills CASCADE;
+					 Summaries, WorkExperiences, WorkTitles, WorkDescriptions, Educations, Majors, Minors, Honors, HasSkills CASCADE;
 DROP DOMAIN IF EXISTS skill_type, level_type, degree_type CASCADE;
 
 
@@ -144,6 +144,9 @@ CREATE TABLE WorkDescriptions (
 	PRIMARY KEY (wID, description)
 );
 
+CREATE DOMAIN degree_type as varchar(13)
+	CHECK (VALUE IN ('certificate', 'undergraduate', 'professional', 'masters', 'doctoral'));
+	
 CREATE TABLE Educations (
 	eID INT,
 	rID INT,
@@ -158,8 +161,6 @@ CREATE TABLE Educations (
 	PRIMARY KEY (eID)
 );
 
-CREATE DOMAIN degree_type as varchar(13)
-	CHECK (VALUE IN ('certificate', 'undergraduate', 'professional', 'masters', 'doctoral'));
 
 CREATE TABLE Majors (
 	eID INT,
