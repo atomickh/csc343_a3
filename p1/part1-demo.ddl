@@ -3,8 +3,11 @@
 --		work Title may have zero instances for a specific workExperience (workTitle+ not satisfied, only workTitle*)
 --		Honorifics may have zero instances for a specific Name (honorific+ not satisfied, only honorific*)
 --      Majors may have zero instances for a specific Education (major+ not satisfied, only major*)
-DROP SCHEMA a3_test;
-CREATE SCHEMA a3_test;
+
+DROP TABLE IF EXISTS Interviews, Names, Honorifics, Titles, Assessments, Collegiality, Postings, Questions, Answers, ReqSkills, Resumes, 
+					 Summaries, WorkDescriptions, WorkTitles, WorkDescriptions, Educations, Majors, Minors, Honors, HasSkills CASCADE;
+DROP DOMAIN IF EXISTS skill_type, level_type, degree_type CASCADE;
+
 
 
 CREATE TABLE Interviews (
