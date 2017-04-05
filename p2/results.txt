@@ -4,74 +4,169 @@ Running Assignment 3 XPath/XQuery Solutions
 
 ------ raw output ------
 
-bash: galax-run: command not found
+  Undefined Error: file: q1.xq not found
 
 ------ formatted output (therefore well-formed) ------
 
-bash: xmllint: command not found
+TEMP.xml:2: parser error : Start tag expected, '<' not found
+  Undefined Error: file: q1.xq not found
+  ^
 
 ------ checking validity of output ------
 
 Are there any validity errors? (no news is good news)
-bash: xmllint: command not found
+TEMP.xml:3: parser error : Start tag expected, '<' not found
+  Undefined Error: file: q1.xq not found
+  ^
 
 ============================== Query q2  ==============================
 
 ------ raw output ------
 
-bash: galax-run: command not found
+<important><posting pID="A">
+		<position> Software Consultant </position>
+		<!-- reqSkill+ -->
+		<reqSkill what="SQL" level="5" importance="5"/>
+		<!-- questions* --> 
+		<questions>
+			<!-- question* -->
+			<question qID="1">&quot;What is S?&quot;</question>
+		</questions>
+	</posting><posting pID="D">
+		<position> Polymath Consultant </position>
+		<reqSkill what="SQL" level="5" importance="5"/>
+		<reqSkill what="Scheme" level="1" importance="5"/>
+		<reqSkill what="Python" level="1" importance="5"/>
+		<reqSkill what="R" level="5" importance="5"/>
+		<reqSkill what="LaTeX" level="4" importance="5"/>
+		<questions>
+			<question qID="1">&quot;What is A?&quot;</question>
+		</questions>
+	</posting></important>
 
 ------ formatted output (therefore well-formed) ------
 
-bash: xmllint: command not found
+<?xml version="1.0" standalone="no"?>
+<important>
+  <posting pID="A">
+    <position> Software Consultant </position>
+    <!-- reqSkill+ -->
+    <reqSkill what="SQL" level="5" importance="5"/>
+    <!-- questions* -->
+    <questions>
+      <!-- question* -->
+      <question qID="1">"What is S?"</question>
+    </questions>
+  </posting>
+  <posting pID="D">
+    <position> Polymath Consultant </position>
+    <reqSkill what="SQL" level="5" importance="5"/>
+    <reqSkill what="Scheme" level="1" importance="5"/>
+    <reqSkill what="Python" level="1" importance="5"/>
+    <reqSkill what="R" level="5" importance="5"/>
+    <reqSkill what="LaTeX" level="4" importance="5"/>
+    <questions>
+      <question qID="1">"What is A?"</question>
+    </questions>
+  </posting>
+</important>
 
 ------ checking validity of output ------
 
 Are there any validity errors? (no news is good news)
-bash: xmllint: command not found
 
 ============================== Query q3  ==============================
 
 ------ raw output ------
 
-bash: galax-run: command not found
+  Undefined Error: file: q3.xq not found
 
 ------ formatted output (therefore well-formed) ------
 
-bash: xmllint: command not found
+TEMP.xml:2: parser error : Start tag expected, '<' not found
+  Undefined Error: file: q3.xq not found
+  ^
 
 ------ checking validity of output ------
 
 Are there any validity errors? (no news is good news)
-bash: xmllint: command not found
+TEMP.xml:3: parser error : Start tag expected, '<' not found
+  Undefined Error: file: q3.xq not found
+  ^
 
 ============================== Query q4  ==============================
 
 ------ raw output ------
 
-bash: galax-run: command not found
+<bestskills><best resume="forename " position="p1"><enthusiasm>51</enthusiasm></best><best resume="f2 " position="p2"><communication>19</communication></best><best resume="f2 " position="p2"><enthusiasm>19</enthusiasm></best></bestskills>
 
 ------ formatted output (therefore well-formed) ------
 
-bash: xmllint: command not found
+<?xml version="1.0" standalone="no"?>
+<bestskills>
+  <best resume="forename " position="p1">
+    <enthusiasm>51</enthusiasm>
+  </best>
+  <best resume="f2 " position="p2">
+    <communication>19</communication>
+  </best>
+  <best resume="f2 " position="p2">
+    <enthusiasm>19</enthusiasm>
+  </best>
+</bestskills>
 
 ------ checking validity of output ------
 
 Are there any validity errors? (no news is good news)
-bash: xmllint: command not found
 
 ============================== Query q5  ==============================
 
 ------ raw output ------
 
-bash: galax-run: command not found
+<histogram><skill name="SQL"><count level="1" n="0"/><count level="2" n="0"/><count level="3" n="0"/><count level="4" n="0"/><count level="5" n="3"/></skill><skill name="R"><count level="1" n="0"/><count level="2" n="0"/><count level="3" n="2"/><count level="4" n="0"/><count level="5" n="0"/></skill><skill name="Python"><count level="1" n="0"/><count level="2" n="1"/><count level="3" n="0"/><count level="4" n="0"/><count level="5" n="0"/></skill><skill name="Scheme"><count level="1" n="0"/><count level="2" n="0"/><count level="3" n="0"/><count level="4" n="2"/><count level="5" n="0"/></skill><skill name="LaTeX"><count level="1" n="1"/><count level="2" n="0"/><count level="3" n="0"/><count level="4" n="0"/><count level="5" n="0"/></skill></histogram>
 
 ------ formatted output (therefore well-formed) ------
 
-bash: xmllint: command not found
+<?xml version="1.0" standalone="no"?>
+<histogram>
+  <skill name="SQL">
+    <count level="1" n="0"/>
+    <count level="2" n="0"/>
+    <count level="3" n="0"/>
+    <count level="4" n="0"/>
+    <count level="5" n="3"/>
+  </skill>
+  <skill name="R">
+    <count level="1" n="0"/>
+    <count level="2" n="0"/>
+    <count level="3" n="2"/>
+    <count level="4" n="0"/>
+    <count level="5" n="0"/>
+  </skill>
+  <skill name="Python">
+    <count level="1" n="0"/>
+    <count level="2" n="1"/>
+    <count level="3" n="0"/>
+    <count level="4" n="0"/>
+    <count level="5" n="0"/>
+  </skill>
+  <skill name="Scheme">
+    <count level="1" n="0"/>
+    <count level="2" n="0"/>
+    <count level="3" n="0"/>
+    <count level="4" n="2"/>
+    <count level="5" n="0"/>
+  </skill>
+  <skill name="LaTeX">
+    <count level="1" n="1"/>
+    <count level="2" n="0"/>
+    <count level="3" n="0"/>
+    <count level="4" n="0"/>
+    <count level="5" n="0"/>
+  </skill>
+</histogram>
 
 ------ checking validity of output ------
 
 Are there any validity errors? (no news is good news)
-bash: xmllint: command not found
 

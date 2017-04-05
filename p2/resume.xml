@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE resumes SYSTEM "resume.dtd">
+
+<resumes>
+	<!-- resume+ -->
+	<resume rID = "r1">
+		<!-- summary? -->
+		<summary>summary </summary>
+		
+		<identification> 
+			<name>
+				<forename>forename </forename>
+				<surname>surname </surname>
+				<!-- honorific+ -->
+				<honorific>honorific </honorific>
+				<!-- title* -->
+				<title> title</title>
+			</name>
+			<DOB>DOB </DOB>
+			<citizenship>citizenship </citizenship>
+			<address> address </address>
+			<telephone>telephone </telephone>
+			<email> email </email>
+		</identification>
+		
+		<!-- education? -->
+		<education>
+			<!-- degree* -->
+			<degree level="masters">
+				<!-- degreeName+ --> 
+				<degreeName>degreeName </degreeName>
+				<!-- institution+ -->
+				<institution>institution </institution>
+				<!-- major+ -->
+				<major>major </major>
+				<!-- minor* -->
+				<minor>minor </minor>
+				<!-- honours? -->
+				<honours />
+				<period>
+					<startDate>startDate</startDate>
+					<endDate>endDate</endDate>
+				</period>
+			</degree>
+		</education>
+
+		<!-- experience? -->
+		<experience>
+			<!-- position* -->
+			<position where="where">
+				<!-- title+ --> 
+				<title>title </title>
+				<!-- description? -->
+				<description> description</description>
+				<period>
+					<startDate> startDate </startDate>
+					<endDate> endDate </endDate>
+				</period>
+			</position>
+		</experience>
+
+		<skills>
+			<!-- skill* -->
+			<skill what="SQL" level="5" />
+
+		</skills>
+
+	</resume>
+
+	<resume rID = "r2">
+		<identification> 
+			<name>
+				<forename>f2 </forename>
+				<surname>s2 </surname>
+				<!-- honorific+ -->
+				<honorific>h2 </honorific>
+				<!-- title* -->
+				<title> t2</title>
+			</name>
+			<DOB>DOB2 </DOB>
+			<citizenship>c2 </citizenship>
+			<address> a2 </address>
+			<telephone>t2 </telephone>
+			<email> e2 </email>
+		</identification>
+		<skills>
+			<!-- skill* -->
+			<skill what="SQL" level="5" />
+			<skill what="Scheme" level="4" />
+			<skill what="R" level="3" />
+
+		</skills>
+	</resume>
+
+	<resume rID = "r3">
+		<identification> 
+			<name>
+				<forename>f3 </forename>
+				<surname>s3 </surname>
+				<!-- honorific+ -->
+				<honorific>h3 </honorific>
+				<!-- title* -->
+				
+			</name>
+			<DOB>DOB3 </DOB>
+			<citizenship>c3 </citizenship>
+			<address> a3 </address>
+			<telephone>t3 </telephone>
+			<email> e3 </email>
+		</identification>
+		<skills>
+			
+
+		</skills>
+	</resume>
+
+	<resume rID = "r4">
+		<identification> 
+			<name>
+				<forename>f4 </forename>
+				<surname>s4 </surname>
+				<!-- honorific+ -->
+				<honorific>h4 </honorific>
+				<!-- title* -->
+				
+			</name>
+			<DOB>DOB4 </DOB>
+			<citizenship>c4 </citizenship>
+			<address> a4 </address>
+			<telephone>t4 </telephone>
+			<email> e4 </email>
+		</identification>
+		<skills>
+			<!-- skill* -->
+			<skill what="SQL" level="5" />
+			<skill what="Scheme" level="4" />
+			<skill what="R" level="3" />
+			<skill what="Python" level="2" />
+			<skill what="LaTeX" level="1" />
+
+		</skills>
+	</resume>
+</resumes> 

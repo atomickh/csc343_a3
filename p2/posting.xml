@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE postings SYSTEM "posting.dtd">
+
+
+<postings>
+	<!-- posting+ -->
+	<posting pID="A">
+		<position> Software Consultant </position>
+		<!-- reqSkill+ -->
+		<reqSkill what="SQL" level="5" importance="5" />
+		<!-- questions* --> 
+		<questions>
+			<!-- question* -->
+			<question qID="1" >"What is S?"</question>
+		</questions>
+	</posting>
+	<!-- B has no questions element -->
+	<posting pID="B">
+		<position> Data Consultant </position>
+		<reqSkill what="R" level="1" importance="1" /> 
+		<reqSkill what="SQL" level="4" importance="2" />
+		<questions>
+			<question qID="1" >"What is A?"</question>
+			<question qID="2" >"What is B?"</question>
+			<question qID="3" >"What is C?"</question>
+		</questions>
+	</posting>
+	<!-- C has no question element but has questions element -->
+	<posting pID="C">
+		<position> Reddit Consultant </position>
+		<reqSkill what="Python" level="5" importance="4" />
+		<reqSkill what="SQL" level="1" importance="5" />
+		<questions>
+		</questions> 
+	</posting>
+	<posting pID="D">
+		<position> Polymath Consultant </position>
+		<reqSkill what="SQL" level="5" importance="5" />
+		<reqSkill what="Scheme" level="1" importance="5" />
+		<reqSkill what="Python" level="1" importance="5" />
+		<reqSkill what="R" level="5" importance="5" />
+		<reqSkill what="LaTeX" level="4" importance="5" />
+		<questions>
+			<question qID="1" >"What is A?"</question>
+		</questions>
+	</posting>
+	<posting pID="E">
+		<position> Polymath Consultant </position>
+		<reqSkill what="SQL" level="5" importance="5" />
+		<reqSkill what="R" level="5" importance="5" />
+		<questions>
+			<question qID="1" >"What is A?"</question>
+		</questions>
+	</posting>
+</postings> 

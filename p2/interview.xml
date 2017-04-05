@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE interviews SYSTEM "interview.dtd">
+
+<interviews>
+	<!-- interview+ -->
+	<interview rID="r1" pID="p1" sID = "S1">
+		<date>date </date>
+		<time>time </time>
+		<location>location </location>
+		<assessment>
+			<!-- answers? -->
+			<answers>
+				<!-- answer+ -->
+				<answer qID="1"> question1 </answer>
+				<answer qID="2"> question2 </answer>
+				<answer qID="3"> question3 </answer>
+			</answers>
+			<techProficiency>15</techProficiency>
+			<communication>15</communication>
+			<enthusiasm>51</enthusiasm>
+			<collegiality>18</collegiality>			
+		</assessment>
+	</interview>
+		<!-- interview+ -->
+	<interview rID="r2" pID="p2" sID = "S1">
+		<date>date </date>
+		<time>time </time>
+		<location>location </location>
+		<assessment>
+			<!-- answers? -->
+			<answers>
+				<!-- answer+ -->
+				<answer qID="1"> question1 </answer>
+				<answer qID="2"> question2 </answer>
+				<answer qID="3"> question3 </answer>
+			</answers>
+			<techProficiency>15</techProficiency>
+			<communication>19</communication>
+			<enthusiasm>19</enthusiasm>		
+		</assessment>
+	</interview>
+	<!-- interviewer+ -->
+	<interviewer sID = "S1">
+		<forename> forename</forename>
+		<surname> surname </surname>
+		<!-- honorific+ -->
+		<honorific> honorific </honorific>
+		<!-- title* -->
+		<title>title </title>
+	</interviewer>
+</interviews> 
