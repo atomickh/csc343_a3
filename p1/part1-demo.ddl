@@ -119,7 +119,7 @@ CREATE TABLE Summaries (
 CREATE TABLE WorkExperiences (
 	rID INT,
 	wID INT,
-	where TEXT NOT NULL,
+	workWhere TEXT NOT NULL,
 	start_date DATE,
 	end_date DATE,
 	FOREIGN KEY (rID) REFERENCES Resumes,
