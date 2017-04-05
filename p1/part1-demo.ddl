@@ -16,6 +16,51 @@ CREATE TABLE Names (
 	PRIMARY KEY (nID)
 );
 
+CREATE TABLE Assessments (
+	aID INT,
+	techProficiency TEXT,
+	communication TEXT,
+	enthusiasm TEXT,
+	PRIMARY KEY (aID)
+);
+
+CREATE TABLE Postings (
+	pID INT,
+	position TEXT NOT NULL,
+	PRIMARY KEY (pID)
+);
+
+
+CREATE TABLE Resumes (
+	rID INT,
+	nID INT,
+	DoB DATE, 
+	citizenship TEXT,
+	address TEXT,
+	telephone VARCHAR(11),
+	email TEXT,
+	FOREIGN KEY (nID) REFERENCES Names,
+	PRIMARY KEY (rID)
+);
+
+
+CREATE TABLE Interviews (
+	rID INT,
+	pID INT,
+	nID INT,
+	aID INT,
+	i_date DATE, 
+	i_time TIME,
+	location TEXT,
+	FOREIGN KEY (rID) REFERENCES Resumes, 
+	FOREIGN KEY (pID) REFERENCES Postings, 
+	FOREIGN KEY (nID) REFERENCES Names,
+	FOREIGN KEY (aID) REFERENCES Assessments,
+	PRIMARY KEY (rID, pID, nID)
+);
+
+-- NAMES INFORMATION
+
 CREATE TABLE Honorifics (
 	nID INT,
 	honor_title TEXT NOT NULL,
@@ -30,13 +75,7 @@ CREATE TABLE Titles (
 	PRIMARY KEY (nID, title)
 );
 
-CREATE TABLE Assessments (
-	aID INT,
-	techProficiency TEXT,
-	communication TEXT,
-	enthusiasm TEXT,
-	PRIMARY KEY (aID)
-);
+-- ASSESSMENT INFORMATION
 
 CREATE TABLE Collegiality (
 	aID INT,
@@ -45,11 +84,8 @@ CREATE TABLE Collegiality (
 	PRIMARY KEY (aID)
 );
 
-CREATE TABLE Postings (
-	pID INT,
-	position TEXT NOT NULL,
-	PRIMARY KEY (pID)
-);
+
+-- POSTING INFORMATION
 
 CREATE TABLE Questions (
 	qID INT,
@@ -58,7 +94,6 @@ CREATE TABLE Questions (
 	FOREIGN KEY (pID) REFERENCES Postings,
 	PRIMARY KEY (qID)
 );
-
 
 CREATE TABLE Answers (
 	aID INT,
@@ -84,33 +119,7 @@ CREATE TABLE ReqSkills (
 	PRIMARY KEY (pID, skill)
 );
 
-CREATE TABLE Interviews (
-	rID INT,
-	pID INT,
-	nID INT,
-	aID INT,
-	i_date DATE, 
-	i_time TIME,
-	location TEXT,
-	FOREIGN KEY (rID) REFERENCES Resumes, 
-	FOREIGN KEY (pID) REFERENCES Postings, 
-	FOREIGN KEY (nID) REFERENCES Names,
-	FOREIGN KEY (aID) REFERENCES Assessments,
-	PRIMARY KEY (rID, pID, nID)
-);
-
-
-CREATE TABLE Resumes (
-	rID INT,
-	nID INT,
-	DoB DATE, 
-	citizenship TEXT,
-	address TEXT,
-	telephone VARCHAR(11),
-	email TEXT,
-	FOREIGN KEY (nID) REFERENCES Names,
-	PRIMARY KEY (rID)
-);
+-- RESUME INFORMATION 
 
 CREATE TABLE Summaries (
 	rID INT,
