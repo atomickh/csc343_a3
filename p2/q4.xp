@@ -2,6 +2,19 @@ declare variable $dataset0 external;
 declare variable $dataset1 external;
 
 
-let $i := fn:doc("interview.xml")
-let $r := fn:doc("resume.xml")
-return 123
+for $interview in $dataset0//interviews
+let $rID := $interview/@rID
+let $sID := $interview/@sID
+let $assess := $interview/assessment
+let $best := 
+	(if ($assess/communication >= $assess/enthusiasm and $assess/communication >= $assess/collegiality)
+	then (return $assess/communication)
+	else ()
+	if ($assess/collegiality >= $assess/communication and $assess/collegiality >= $assess/enthusiasm)
+	then (return $assess/communication)
+	else ()
+	if ($assess/enthusiasm >= $assess/communication and $assess/enthusiasm >= $assess/collegiality)
+	then (return $assess/communication)
+	else ())	
+let $name := $dataset1/resumes/resume
+return $best
