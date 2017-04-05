@@ -3,8 +3,10 @@
 --		work Title may have zero instances for a specific workExperience (workTitle+ not satisfied, only workTitle*)
 --		Honorifics may have zero instances for a specific Name (honorific+ not satisfied, only honorific*)
 --      Majors may have zero instances for a specific Education (major+ not satisfied, only major*)
-
+DROP SCHEMA a3_test;
 CREATE SCHEMA a3_test;
+
+
 CREATE TABLE Interviews (
 	rID INT,
 	pID INT,
@@ -122,7 +124,7 @@ CREATE TABLE WorkExperiences (
 	end_date DATE,
 	FOREIGN KEY (rID) REFERENCES Resumes,
 	PRIMARY KEY (wID),
-	CHECK start_date <= end_date
+	CHECK (start_date <= end_date)
 );
 
 CREATE TABLE WorkTitles (
@@ -149,7 +151,7 @@ CREATE TABLE Educations (
 	start_date DATE,
 	end_date DATE,
 	FOREIGN KEY (rID) REFERENCES Resumes,
-	CHECK start_date <= end_date,
+	CHECK (start_date <= end_date),
 	PRIMARY KEY (eID)
 );
 
